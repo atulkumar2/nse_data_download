@@ -108,7 +108,13 @@ def is_public_holiday(date):
         # Check against actual date objects
         if hasattr(date, 'date'):
             date = date.date()
-        return date in holidays
+        
+        # First check if it's in the CSV holidays
+        if date in holidays:
+            return True
+        
+        # Fallback to recurring holidays for dates not in CSV
+        return (date.month, date.day) in RECURRING_HOLIDAYS
 
 
 def get_holiday_name(month, day):
