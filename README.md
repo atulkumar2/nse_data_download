@@ -2,6 +2,16 @@
 
 Automated script to download full bhavcopy and security deliverable data from NSE India website.
 
+## Scripts
+
+### 1. download_nse_bhavcopy.py - Data Downloader
+
+Downloads NSE bhavcopy files for specified date ranges
+
+### 2. analyze_existing_files.py - File Analyzer
+
+Analyzes existing NSE bhavcopy files in a directory and identifies missing dates
+
 ## Features
 
 - ✅ Automated navigation through NSE website with calendar-based date selection
@@ -84,6 +94,25 @@ Download single day:
 ```powershell
 python download_nse_bhavcopy.py --start-date 2025-07-15 --end-date 2025-07-15
 ```
+
+## Analyzing Existing Files
+
+Use `analyze_existing_files.py` to scan a directory containing NSE bhavcopy files:
+
+```powershell
+uv run python analyze_existing_files.py --input-dir "C:\path\to\nse\data" --output-dir analysis
+```
+
+This will generate:
+
+1. `existing_files_summary.csv` - Details of all found files with size and shape
+2. `missing_files.csv` - List of missing dates (weekdays and weekends)
+
+### Analysis Options
+
+- `--input-dir`: Directory containing NSE CSV files (required)
+- `--output-dir`: Where to save analysis results (default: analysis)
+- `--no-recursive`: Search only in the specified directory, not subdirectories
 
 ## Output
 
