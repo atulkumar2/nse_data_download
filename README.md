@@ -43,16 +43,28 @@ use this module to skip market closed days.
 
 ## Installation
 
-1. Install required packages:
+### Option 1: Using uv (recommended)
+
+Create or refresh `requirements.txt` from `pyproject.toml`:
 
 ```powershell
-pip install -r requirements.txt
+uv pip compile pyproject.toml -o requirements.txt
 ```
 
-Or with uv:
+Then install dependencies into your environment:
 
 ```powershell
 uv sync
+```
+
+### Option 2: Using plain pip (without uv)
+
+If you prefer not to use `uv`, you can use `requirements.txt` directly with `pip`:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
 ```
 
 ## Usage

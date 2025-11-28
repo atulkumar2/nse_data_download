@@ -55,3 +55,6 @@ NSE_Snapshot/
 # Temporary files
 *.tmp
 *.bak
+
+# custom additions
+!requirements.txt
